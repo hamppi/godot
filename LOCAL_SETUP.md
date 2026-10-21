@@ -17,6 +17,7 @@ The upstream master branch is engine development, so it is not merged into this 
 
 Kenney projects live in D:/HTML5Games/GodotGames. Open a project's project.godot in this editor.
 Run each project's build-web.ps1 to import and export to web-build/index.html and game-build.zip.
-Official 4.7.2 web export templates are installed in %APPDATA%/Godot/export_templates/4.7.2.stable.
-The web templates are official binaries; the Windows editor is compiled locally from this fork.
-Changes to engine runtime code require rebuilding the web templates with Emscripten as well.
+Each kit ships its own audited minimal release template in web-templates/release.zip.
+Official templates remain installed for debug exports. The Windows editor retains full engine features.
+Changes to runtime code, enabled features or profiles require rebuilding the corresponding web template
+with Emscripten and revalidating the game. See misc/web_size/README.md and the Game Hub size report.
