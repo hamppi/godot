@@ -1,6 +1,7 @@
 
 /**
  * @constructor OVR_multiview2
+ * @suppress {duplicate} Modern Closure also declares this standard WebGL extension.
  */
 function OVR_multiview2() {}
 
