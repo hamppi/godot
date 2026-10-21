@@ -64,7 +64,7 @@ def measure(root, output, backup=None):
         row = {'game': project.name, 'files': files, 'raw_total': sum(f['bytes'] for f in files),
                'gzip9_total': sum(f['gzip9'] for f in files),
                'brotli11_total': sum(f['brotli11'] for f in files) if brotli else None,
-               'zip_bytes': (project / 'game-build.zip').stat().st_size, 'pck_member_count': len(members)}
+               'zip_bytes': (project / 'upload/game-build.zip').stat().st_size, 'pck_member_count': len(members)}
         rows.append(row)
         print(f"{project.name}: wasm={next(f['bytes'] for f in files if f['name']=='index.wasm'):,}; "
               f"PCK={(build/'index.pck').stat().st_size:,}; raw={row['raw_total']:,}; "
@@ -74,7 +74,7 @@ def measure(root, output, backup=None):
             backup.mkdir(parents=True, exist_ok=True)
             dest = backup / f'{project.name}.zip'
             if not dest.exists():
-                shutil.copy2(project / 'game-build.zip', dest)
+                shutil.copy2(project / 'upload/game-build.zip', dest)
     (output / 'sizes.json').write_text(json.dumps(rows, indent=2), encoding='utf-8')
 
 

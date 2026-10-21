@@ -16,7 +16,9 @@ Choose a newer stable tag explicitly with `-Ref <tag>` after fetching tags; revi
 The upstream master branch is engine development, so it is not merged into this stable build automatically.
 
 Kenney projects live in D:/HTML5Games/GodotGames. Open a project's project.godot in this editor.
-Run each project's build-web.ps1 to import and export to web-build/index.html and game-build.zip.
+Run each project's build-web.ps1 to import and export a local web-build/index.html preview
+and upload/game-build.zip. The final upload/ directory contains only the upload archive;
+unpacked preview files and HTTP compression sidecars stay separately in web-build/.
 Each kit ships its own audited minimal release template in web-templates/release.zip.
 Official templates remain installed for debug exports. The Windows editor retains full engine features.
 Changes to runtime code, enabled features or profiles require rebuilding the corresponding web template

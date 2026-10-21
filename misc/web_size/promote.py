@@ -30,9 +30,10 @@ for kit in ('Match-3', 'Racing', '3D-Platformer', 'FPS', 'City-Builder', 'Basic-
         raise RuntimeError('Package candidate before promotion')
     if live.exists():
         live.rename(backup)
-        if (project / 'game-build.zip').exists():
-            shutil.copy2(project / 'game-build.zip', backup / 'previous-game-build.zip')
+        if (project / 'upload/game-build.zip').exists():
+            shutil.copy2(project / 'upload/game-build.zip', backup / 'previous-game-build.zip')
     candidate.rename(live)
-    (project / '.candidate-game-build.zip').replace(project / 'game-build.zip')
+    (project / 'upload').mkdir(exist_ok=True)
+    (project / '.candidate-game-build.zip').replace(project / 'upload/game-build.zip')
     (project / '.candidate-web-size-report.json').replace(project / 'web-size-report.json')
     print('PROMOTED', kit, flush=True)

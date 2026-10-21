@@ -58,8 +58,11 @@ Frame callback cadence is not a low-end phone benchmark.
 under size-research/previous-live-builds. The size-research directory is ignored research
 evidence, not required engine source. `audit.py` records file hashes and PCK member sizes.
 
-Packaging generates deterministic ordinary-file ZIPs, plus optional Brotli-11/gzip-9
-HTTP sidecars outside the ZIP. Install Python `brotli` to regenerate Brotli. The Hub serves
+Packaging generates upload/game-build.zip in a dedicated upload/ directory containing
+only that ZIP. Its allowlist includes runtime files and the license, excluding project sources,
+templates, Hub metadata/artwork and all .br/.gz copies. Unpacked binaries and optional
+Brotli-11/gzip-9 HTTP sidecars stay in web-build/ for local previews. --upload-only recreates
+the final ZIP without rebuilding or recompressing the preview. Install Python `brotli` to regenerate Brotli. The Hub serves
 sidecars with negotiated Content-Encoding; other hosts need their own encoding configuration.
 Compare decoded WASM size, encoded transfer size and upload ZIP size separately.
 
