@@ -72,7 +72,7 @@ def package(project, candidate=False):
 
 
 if __name__ == '__main__':
-    project = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parents[1]
+    project = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parents[2]
     if '--verify-only' in sys.argv:
         verify_template(project)
         print('Custom template and profile verified')
